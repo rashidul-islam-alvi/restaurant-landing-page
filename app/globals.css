@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.shadow {
+  -webkit-box-shadow: -11px 10px 0px -4px rgba(118, 40, 36, 1);
+  -moz-box-shadow: -11px 10px 0px -4px rgba(118, 40, 36, 1);
+  box-shadow: -8px 8px 0px -1px rgba(118, 40, 36, 1);
+}
