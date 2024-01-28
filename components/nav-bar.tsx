@@ -1,21 +1,32 @@
-import React from "react";
-import NextImage from "./ui/custom-image-component";
+"use client";
+
+import React, { useState } from "react";
 import ShadowButton from "./ui/shadow-button";
 import { BsCart2 } from "react-icons/bs";
 import Logo from "./logo";
+import Link from "next/link";
+import { useParams } from "next/navigation";
 
 const Navbar = () => {
+  const [activeId, setActiveId] = useState("0");
+
   const navItemsData = [
-    { id: "1", title: "Shop" },
-    { id: "2", title: "Menu" },
-    { id: "3", title: "Our Roots" },
-    { id: "4", title: "Visit" },
-    { id: "5", title: "Press" },
+    { id: "1", title: "Shop", href: "/shop" },
+    { id: "2", title: "Menu", href: "/menu" },
+    { id: "3", title: "Our Roots", href: "/roots" },
+    { id: "4", title: "Visit", href: "/visit" },
+    { id: "5", title: "Press", href: "/press" },
   ];
 
   const navItems = navItemsData.map((item) => (
-    <li key={item.id} className="text-3xl tracking-wider border-b-2">
-      <a href={`#${item.id}`}>{item.title}</a>
+    <li
+      key={item.id}
+      className={`text-3xl tracking-wider ${
+        item.id === activeId ? "border-b-2" : "border-b-0"
+      } `}
+      onClick={() => setActiveId(item.id)}
+    >
+      <Link href={`${item.href}`}>{item.title}</Link>
     </li>
   ));
 
